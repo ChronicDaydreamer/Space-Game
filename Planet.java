@@ -23,7 +23,7 @@ public class Planet extends GameObject{
   Color color;
   double frostLine;
   double[] atmosCompList=new double[24];
-
+  //basically a setter for the planets orbit stuff, and generates the other info about the planet
   public Planet(StarSystem s, int x, int y, ID id,double newOrbitRadius, Random r){
     super(x,y,id);
     this.s=s;
@@ -54,12 +54,14 @@ public class Planet extends GameObject{
   public double getOrbitRadius(){
     return this.orbitRadius;
   }
+  //sets how zoomed in or out the camera is, not working rn
   public void setDistanceFactor(double distanceFactor){
     this.distanceFactor=distanceFactor;
     this.renderedRadius=this.orbitRadius*this.distanceFactor;
     this.frostLine=this.s.frostLine*this.distanceFactor;
     //System.out.println("The new orbit radius is "+this.renderedRadius);
   }
+  //generates all the characteristics of the planet
   public void genPlanet(){
     double gasAfterFL=(3/(Math.pow((2*Math.PI),0.5)))*Math.pow(2.71828,(-0.5*Math.pow((this.orbitRadius-(this.s.frostLine/2)-12*this.s.frostLine)/(6*this.s.frostLine*this.s.metal),2)));
     double gasChance=(1.2/(Math.pow(2*Math.PI,0.5)))*Math.pow(2.71828,(-0.5*Math.pow((this.orbitRadius)/(this.s.metal*0.05),2)))+gasAfterFL;
