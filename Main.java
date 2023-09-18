@@ -25,6 +25,7 @@ public class Main extends Canvas implements Runnable{
     Map,
     Game
   }
+  //for changing the view when you click on a system
   public void resetCoords(double xChange,double yChange){
     for(int i = 0;i<systemList.length;i++){
 
