@@ -4,6 +4,7 @@ public abstract class GameObject{
   protected ID id;
   protected int velX, velY;
 
+  //setters
   public GameObject(int x, int y, ID id){
     this.x=x;
     this.y=y;
