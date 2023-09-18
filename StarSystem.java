@@ -27,7 +27,7 @@ public class StarSystem extends GameObject{
 
 
 
-
+//sets all the info and generates star characteristics, the potential orbits of the system, and finally the planets themselves
     public StarSystem(int x, int y, ID id,int num, int massNum, double lifePercent,Random r, Main game){
       super(x,y,id);
       this.game=game;
@@ -50,6 +50,7 @@ public class StarSystem extends GameObject{
       g.setColor(Color.white);
       g.drawOval((int)((game.WIDTH/2)-this.frostLine), (int)((game.HEIGHT/2)-this.frostLine),(int)(this.frostLine*2),(int)(this.frostLine*2));
     }
+    //randomly picks a type of star based on the actual distribution of stellar types in the milky way, and generates info from that 
     public void typeGen(int num, int massNum, double lifePercent){
       if(num==0){
         this.type="exotic";
@@ -103,6 +104,7 @@ public class StarSystem extends GameObject{
       age=((double)(Math.round(14*lifePercent*100)))/100;
 
     }
+    //generates the potential orbits of the system based on the closest potential orbit and a spacing factor
     public void orbitGen(double spacing){
       int orbitNum=(int)((Math.pow((mass-1)*100, 1/3)+15)+(Math.log(mass+0.00012)-3));
       double[] newOrbits=new double[orbitNum];
@@ -118,6 +120,7 @@ public class StarSystem extends GameObject{
         }
       this.frostLine=4.85*Math.pow(this.lumin,0.5);
     }
+    //determines if a potential orbit actually hosts a planet, and if so, generates that info
     public void planetGen(){
       int planetCounter=0;
       double chanceOfPlanet=(-(Math.log(planetCounter+1)/Math.log(2))+(Math.log(51)/Math.log(2)))/11;
