@@ -71,6 +71,7 @@ public class Menu extends MouseAdapter{
   public void mouseReleased(MouseEvent e){
 
   }
+  //for the buttons
   private boolean mouseOver(int mx, int my, int x, int y, int width, int height){
     if(mx>x&&mx<x+width){
       if(my>y&&my<y+height){
@@ -86,6 +87,7 @@ public class Menu extends MouseAdapter{
   public void tick(){
 
   }
+  //for the gui, text, and stars/planets
   public void render(Graphics g){
     if(game.gameState==Main.STATE.Menu){
       Font fnt=new Font("arial",1,50);
